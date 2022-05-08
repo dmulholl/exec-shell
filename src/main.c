@@ -99,7 +99,7 @@ void exec_shell_cmd(const char* cmd, const char* input) {
         while ((dup2(child_stderr_pipe[1], STDERR_FILENO) == -1) && (errno == EINTR)) {}
         close(child_stderr_pipe[1]);
 
-        execl("/bin/sh", "sh", "-c", cmd, (char*) NULL);
+        execl("/bin/sh", "sh", "-c", cmd, (char*)NULL);
         perror("returned from execl() in child");
         exit(1);
     }
@@ -157,13 +157,16 @@ void exec_shell_cmd(const char* cmd, const char* input) {
 }
 
 
-int main(int argc, char **argv) {
+int main(int argc, char** argv) {
     printf("---\n");
     exec_shell_cmd("ls", NULL);
+
     printf("---\n");
     exec_shell_cmd("cat", "foo bar\n");
+
     printf("---\n");
     exec_shell_cmd("echo $HOME", NULL);
+
     printf("---\n");
     return 0;
 }
