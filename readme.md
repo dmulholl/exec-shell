@@ -4,7 +4,7 @@ This repo contains demo code for executing a shell command in C, writing to its 
 
 To build the demo application:
 
-    make run
+    make
 
 To build and run the demo application:
 
